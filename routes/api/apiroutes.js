@@ -7,7 +7,7 @@ const db = require('../../models/schema');
 // /workouts
 router.get('/workouts', (req, res) => {
     // add fields to get total duration and distance of workouts
-    db.Workout.aggregate([
+    db.aggregate([
         {
             $addfields: {
                 totalDuration: {
@@ -54,3 +54,4 @@ router.put('/workouts/:id', (req, res) => {
         })
 });
 
+module.exports = router;
